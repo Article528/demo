@@ -1,0 +1,14 @@
+{
+  // สำคัญ: ชื่อนี้ต้องตรงกับชื่อโปรเจกต์/Worker ที่ตั้งในหน้า Cloudflare ตอนเชื่อม GitHub
+  // ถ้าไม่ตรง การ build จะแจ้ง error หรือสร้าง Worker คนละตัว
+  "name": "cf-github-demo",
+  "main": "src/index.js",
+  "compatibility_date": "2025-09-01",
+
+  // หน้าเว็บ: ไฟล์ในโฟลเดอร์ public ถูกเสิร์ฟจาก edge ตรงๆ
+  // เฉพาะ /api/* เท่านั้นที่เข้า Worker
+  "assets": {
+    "directory": "./public",
+    "run_worker_first": ["/api/*"]
+  }
+}
